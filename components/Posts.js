@@ -5,13 +5,13 @@ const Posts = (posts, value) => {
   const container = document.createElement("div");
   container.classList.add("posts");
   if (!posts.length) {
-    const emptyPost = document.createElement("h3");
-    emptyPost.innerText = "Nothing to show!";
-    container.append(emptyPost);
-    return container;
+    const clone = document
+      .getElementById("no-data-found-template")
+      .content.cloneNode(true);
+    return clone;
   }
 
-  posts.map((post) => fragment.append(Post(post, value)));
+  posts.map(post => fragment.append(Post(post, value)));
   container.append(fragment);
   return container;
 };
